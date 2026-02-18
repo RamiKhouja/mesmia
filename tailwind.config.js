@@ -18,6 +18,7 @@ export default {
                 'nanum' : ['Nanum Myeongjo', 'sans-serif'],
                 'adobe': ['Adobe Arabic', 'sans-serif'],
                 'layla-thuluth': ['Layla Thuluth', 'sans-serif'],
+                'hudhud': ['Hudhud Arabic', 'sans-serif'],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {

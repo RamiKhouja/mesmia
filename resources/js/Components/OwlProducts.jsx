@@ -48,16 +48,16 @@ function OwlProducts({products, type}) {
     };
 
   return (
-    <div className={`mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 ${i18n.language==='ar' ? 'font-layla-thuluth' :''}`}>
+    <div className={`mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl 2xl:max-w-screen-2xl lg:px-8`}>
         {type && type!=='related' && (
           <div className='text-center mb-8'>
-            <div className="text-center mb-4">
-                <p className="text-7xl text-brown-900 font-medium">
+            <div className="text-center">
+                <p className="home-section-title">
                 {type==='featured' ? t('owl-products.featured') : t('owl-products.new-arrivals') }
                 </p>
             </div>
             <div className="text-center mx-auto mb-8 max-w-md" dir={i18n.language==='ar'?'rtl':'ltr'}>
-                <p className="text-2xl text-brown-900">
+                <p className="home-section-description">
                 {t('owl-products.subtitle')}
                 </p>
             </div>

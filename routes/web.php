@@ -128,9 +128,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
         Route::post('/testimonials/{testimonial}/toggle-approval', [TestimonialController::class, 'toggleApproval'])->name('testimonials.toggleApproval');
 
-        Route::get('/about', [AboutController::class, 'index'])->name('about.adminIndex');
-        Route::get('/about/create', [AboutController::class, 'create'])->name('about.create');
+        Route::get('/about', [AboutController::class, 'create'])->name('about.create');
+        //Route::get('/about/create', [AboutController::class, 'create'])->name('about.create');
         Route::post('/about', [AboutController::class, 'store'])->name('about.store');
+        //Route::put('/about/update', [AboutController::class, 'update'])->name('about.update');
 
         Route::get('/ceo/create', [AboutController::class, 'createCeo'])->name('ceo.create');
         Route::post('/ceo', [AboutController::class, 'storeCeo'])->name('ceo.store');

@@ -15,7 +15,7 @@ function About({auth, about, users, categories, eventCategories}) {
         <div className="relative isolate -z-10" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
           <svg
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-brown-100 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
           >
             <defs>
               <pattern
@@ -39,24 +39,24 @@ function About({auth, about, users, categories, eventCategories}) {
           </svg>
           <div
             aria-hidden="true"
-            className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+            className={`absolute ${lang=='ar'?'right-1/2 left-0 lg:mr-24 xl:mr-48' : 'left-1/2 right-0 lg:ml-24 xl:ml-48'} top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl`}
           >
             <div
               style={{
                 clipPath:
                   'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
               }}
-              className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+              className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-brown-200 to-rose-900 opacity-20 lang-ar:-translate-x-1/2"
             />
           </div>
           <div className="overflow-hidden">
-            <div className="mx-auto max-w-7xl px-6 pb-32 pt-16 sm:pt-28 lg:px-8 lg:pt-4">
+            <div className="mx-auto max-w-7xl px-6 pb-16 pt-16 sm:pt-28 lg:px-8 lg:pt-4">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-pretty leading-snug lg:leading-normal lg:-mt-20 text-5xl font-semibold tracking-normal text-gray-900 sm:text-7xl">
+                  <h1 className="text-pretty leading-snug lg:leading-normal lg:-mt-48 text-2xl tracking-normal text-brown-800 sm:text-4xl lang-ar:font-hudhud">
                     {lang === 'en' ? JSON.parse(about.title)?.en : lang==='fr' ? JSON.parse(about.title)?.fr : JSON.parse(about.title)?.ar}
                   </h1>
-                  <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
+                  <p className="mt-2 text-pretty text-lg lang-ar:text-xl font-medium text-brown-800 sm:max-w-md sm:text-xl/8 lang-ar:sm:text-3xl lg:max-w-none">
                     {lang === 'en' ? JSON.parse(about.paragraph_1)?.en : lang==='fr' ? JSON.parse(about.paragraph_1)?.fr : JSON.parse(about.paragraph_1)?.ar}
                   </p>
                 </div>
@@ -65,7 +65,8 @@ function About({auth, about, users, categories, eventCategories}) {
                     <div className="relative">
                       <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src={about.picture_1 ? '/' + about.picture_1 : '/pictures/default.jpg'}
+                        // src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -75,7 +76,8 @@ function About({auth, about, users, categories, eventCategories}) {
                     <div className="relative">
                       <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src={about.picture_2 ? '/' + about.picture_2 : '/pictures/default.jpg'}
+                        // src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -83,7 +85,8 @@ function About({auth, about, users, categories, eventCategories}) {
                     <div className="relative">
                       <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
+                        src={about.picture_3 ? '/' + about.picture_3 : '/pictures/default.jpg'}
+                        // src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -93,7 +96,8 @@ function About({auth, about, users, categories, eventCategories}) {
                     <div className="relative">
                       <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                        src={about.picture_4 ? '/' + about.picture_4 : '/pictures/default.jpg'}
+                        // src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -101,7 +105,8 @@ function About({auth, about, users, categories, eventCategories}) {
                     <div className="relative">
                       <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src={about.picture_5 ? '/' + about.picture_5 : '/pictures/default.jpg'}
+                        // src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -109,11 +114,11 @@ function About({auth, about, users, categories, eventCategories}) {
                   </div>
                 </div>
               </div>
-              <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl mt-20 lg:mt-0">
-                <h1 className="text-pretty leading-snug lg:leading-normal  text-2xl font-semibold tracking-normal text-gray-900 sm:text-5xl">
+              <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl mt-20 lg:-mt-48">
+                <h1 className="text-pretty leading-snug lg:leading-normal  text-2xl tracking-normal text-brown-800 sm:text-4xl lang-ar:font-hudhud">
                   {lang === 'en' ? JSON.parse(about.title_2)?.en : lang==='fr' ? JSON.parse(about.title_2)?.fr : JSON.parse(about.title_2)?.ar}
                 </h1>
-                <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
+                <p className="mt-2 text-pretty text-lg lang-ar:text-xl font-medium text-brown-800 sm:max-w-md sm:text-xl/8 lang-ar:sm:text-3xl lg:max-w-none">
                   {lang === 'en' ? JSON.parse(about.paragraph_2)?.en : lang==='fr' ? JSON.parse(about.paragraph_2)?.fr : JSON.parse(about.paragraph_2)?.ar}
                 </p>
               </div>
@@ -121,10 +126,9 @@ function About({auth, about, users, categories, eventCategories}) {
           </div>
         </div>
         {/* End of Hero Section */}
-        <Banner />
-        <div className="h-60"></div>
-        <Team users={users} />
-        <div className='mx-auto my-28 sm:px-6 lg:px-8 max-w-7xl'>
+        {/* <Banner /> */}
+        {/* <Team users={users} /> */}
+        <div className='mx-auto mb-28 sm:px-6 lg:px-8 max-w-7xl'>
             <Contact />
         </div>
     </div>

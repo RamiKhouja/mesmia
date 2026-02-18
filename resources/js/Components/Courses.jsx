@@ -8,8 +8,22 @@ function Courses() {
     const lang = i18n.language;
     const [play, setPlay] = useState(false);
   return (
-    <div className='my-24'>
-        <div className="grid gap-16 md:grid-cols-2">
+    <div className='my-24 mx-auto lg:max-w-7xl 2xl:max-w-screen-2xl'>
+        <div className="grid gap-16 md:grid-cols-2" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+            <div className='relative my-auto'>
+                <p className='home-section-title text-center'>{t('courses.our-courses')}</p>
+                <p className='home-section-description text-center' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+                    {t('courses.description')}
+                </p>
+                <div className="mt-8 mx-auto text-center">
+                    <Link 
+                        href="/about" 
+                        className={`${i18n.language === 'ar' ? 'font-adobe text-xl' : 'font-nanum'} font-medium bg-brown-100 hover:bg-brown-300 text-brown-900 px-4 py-1 rounded-full inline-block`}
+                    >
+                        {t('about.learn-more')}
+                    </Link>
+                </div>
+            </div>
             {!play ? (
             <div className="relative cursor-pointer group" onClick={() => setPlay(true)}>
                 <img src="/pictures/global/chef.jpg" className='shadow-2xl rounded-xl' alt="" />
@@ -27,12 +41,6 @@ function Courses() {
                 />
             </div>
             )}
-            <div className='relative p-8 text-center'>
-                <Link type='button' href='/about' className={`rounded-full bg-transparent border border-primary text-primary ${lang==='ar'? 'text-2xl font-semibold font-layla-thuluth':'text-lg font-semibold'} px-4 py-1 hover:bg-primary hover:text-white`}>{t('courses.our-courses')}</Link>
-                <p className={`${lang==='ar' ? 'text-2xl font-medium font-layla-thuluth':'text-lg font-medium'} text-primary mt-8`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-                    {t('courses.description')}
-                </p>
-            </div>
         </div>
     </div>
   )

@@ -45,14 +45,12 @@ export default function Categories({categories}) {
 
     return (
       <div>
-        <div className={`mb-8 mt-8 lg:mt-0 xl:mx-auto xl:max-w-7xl xl:px-8 ${i18n.language==='ar' ? 'font-layla-thuluth' :''}`}>
-          <div className="text-center mb-4">
-            <p className={`text-7xl text-brown-900 font-medium`}>
-              {t('category.title')}
-            </p>
-          </div>
-          <div className="text-center mx-auto mb-8 max-w-xl" dir={i18n.language==='ar'?'rtl':'ltr'}>
-            <p className="text-2xl text-brown-900">
+        <div className={`mb-8 mt-8 lg:my-16 xl:mx-auto xl:max-w-7xl 2xl:max-w-screen-2xl xl:px-8`}>
+          <p className='home-section-title text-center'>
+            {t('category.title')}
+          </p>
+          <div className="text-center mx-auto mb-16 max-w-xl" dir={i18n.language==='ar'?'rtl':'ltr'}>
+            <p className="home-section-description">
               {t('category.subtitle')}
             </p>
           </div>
@@ -70,7 +68,7 @@ export default function Categories({categories}) {
                           <img src={category.image} alt="" className="h-full w-full rounded-2xl object-cover object-center" />
                         </div>
                         <div className="mt-6 text-center">
-                          <p className={`${i18n.language==='ar'? 'font-adobe text-4xl font-medium' : 'font-nanum text-2xl font-semibold'} text-primary`}>
+                          <p className={`${i18n.language==='ar'? 'font-hudhud text-2xl lg:text-3xl font-normal' : 'font-nanum text-2xl font-semibold'} text-primary`}>
                             {i18n.language==='ar'? category.name.ar : i18n.language==='en' ? category.name.en : category.name.fr}
                           </p>
                         </div>

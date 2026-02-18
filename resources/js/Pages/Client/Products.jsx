@@ -8,7 +8,7 @@ function Shop({auth, category, products, categories, eventCategories}) {
   return (
     <ClientLayout showMain={false} user={auth?.user} categories={categories} eventCategories={eventCategories}>
       <div className='w-full my-12 px-6 lg:px-0' dir={i18n.language==='ar' ? 'rtl' : 'ltr'}>
-        <div className="text-center mb-12 lang-ar:font-layla-thuluth">
+        <div className="text-center mb-12 lang-ar:font-hudhud">
           <h2 className="mx-auto lg:text-5xl lang-ar:text-4xl lg:lang-ar:text-6xl font-bold tracking-tight text-brown-800 mb-4">
               {i18n.language === 'en' ? category?.name?.en : i18n.language === 'fr' ? category?.name?.fr : category?.name?.ar}
           </h2>

@@ -108,9 +108,9 @@ const CreateAbout = ({ auth, abt }) => {
 
     console.log(about);
     
-    // router.post('/admin/about', formData, {
-    //   forceFormData: true,
-    // });
+    router.post('/admin/about', formData, {
+      forceFormData: true,
+    });
   };
 
   return (
@@ -170,7 +170,7 @@ const CreateAbout = ({ auth, abt }) => {
                 name="image"
                 id="file-input"
                 className="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
-                onClick={(e) => handleImageChange(e)}
+                onChange={(e) => handleImageChange(e)}
               />
             </div>
           </div>
@@ -282,16 +282,13 @@ const CreateAbout = ({ auth, abt }) => {
                   <img
                     id={`image-preview-${num}`}
                     src={
-                      num == 1
-                      ? about.picture_1 ? URL.createObjectURL(about.picture_1) : '/pictures/default.jpg'
-                      : num == 2 
-                        ? about.picture_2 ? URL.createObjectURL(about.picture_2) : '/pictures/default.jpg'
-                        : num == 3 
-                          ? about.picture_3 ? URL.createObjectURL(about.picture_3) : '/pictures/default.jpg'
-                          : num == 4 
-                            ? about.picture_4 ? URL.createObjectURL(about.picture_4) : '/pictures/default.jpg'
-                            : about.picture_5 ? URL.createObjectURL(about.picture_5) : '/pictures/default.jpg'
+                      about[`picture_${num}`]
+                        ? URL.createObjectURL(about[`picture_${num}`])
+                        : abt?.[`picture_${num}`]
+                          ? '/' + abt[`picture_${num}`]
+                          : '/pictures/default.jpg'
                     }
+
                     alt="Preview"
                     className='w-32 rounded-lg'
                   />
@@ -309,7 +306,7 @@ const CreateAbout = ({ auth, abt }) => {
                     name={`picture_${num}`}
                     id={`file-input-${num}`}
                     className="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
-                    onClick={(e) => handleFileChange(e, num)}
+                    onChange={(e) => handleFileChange(e, num)}
                   />
                 </div>
               </div>

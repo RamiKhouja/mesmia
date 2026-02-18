@@ -10,8 +10,9 @@ import Gifts from '@/Components/Gifts';
 import Courses from '@/Components/Courses';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAlert } from '@/redux/cartSlice';
+import AboutSection from '@/Components/About';
 
-function Home({auth, categories, featured, eventCategories}) {
+function Home({auth, categories, featured, eventCategories, about}) {
   const { t, i18n } = useTranslation();
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const { flash } = usePage().props
@@ -133,8 +134,6 @@ function Home({auth, categories, featured, eventCategories}) {
           <img src="/pictures/global/smile.png" className='w-10' alt="" />
         </div> */}
         <div className='sm:px-6 lg:px-8 max-w-7xl xl:max-w-none my-4 lg:my-16 mx-auto'>
-
-          {/* <AboutSection about={about}/> */}
       
           <div>
             <Categories categories={categories}/>
@@ -142,6 +141,7 @@ function Home({auth, categories, featured, eventCategories}) {
             <div className="flex justify-center my-12">
               <img src="/pictures/global/split-design.png" className='w-64 lg:w-96' alt="" />
           </div>
+          <AboutSection about={about}/>
             <OwlProducts products={featured} type={'featured'}/>
             <div className="flex justify-center my-12">
               <img src="/pictures/global/split-design.png" className='w-64 lg:w-96' alt="" />

@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ServiceModal from '@/Components/ServiceModal';
 import SearchBar from '@/Components/SearchBar';
+import ProductItem from '@/Components/ProductItem';
 
 
 function classNames(...classes) {
@@ -23,6 +24,7 @@ export default function ClientLayout({ children, showMain, user, categories, eve
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const cart = useSelector((state) => state.cart.items);
+  const likedItems = useSelector((state) => state.liked.items);
 
   const changeLanguage = (lang) => {
     localStorage.setItem('lang', lang);
@@ -98,6 +100,35 @@ export default function ClientLayout({ children, showMain, user, categories, eve
                   </div>
                   <div className="-mr-2 flex lg:hidden">
                     <SearchBar visibility={false} type="mobile" />
+                    <Dropdown>
+                      <Dropdown.Trigger>
+                        <button
+                            type="button"
+                            className="mt-2 text-primary hover:text-brown-800  focus:outline-none relative ml-2"
+                        >
+                          <span className="absolute -inset-1.5" />
+                          {likedItems && likedItems.length>0 && (
+                            <div className="absolute bg-primary ring-1 ring-white rounded-full -top-0.5 -right-0.5 w-2 h-2  flex justify-center items-center">
+                            </div>
+                          )}
+                          <HeartIcon className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                      </Dropdown.Trigger>
+                      {likedItems && likedItems.length > 0 && (
+                      <Dropdown.Content type={"liked"}>
+                        {likedItems?.map(item => (
+                          <div 
+                            key={item.product.id}
+                            className={
+                              ` ${i18n.language==='ar' ? 'text-right' : 'text-left'} block w-full px-4 py-2 leading-5 text-brown-800 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out`
+                            }
+                          >
+                            <ProductItem product={item.product} />
+                          </div>
+                        ))}
+                      </Dropdown.Content>
+                      )}
+                    </Dropdown>
                     <button
                       type="button"
                       onClick={()=>setCartOpen(true)}
@@ -381,13 +412,42 @@ export default function ClientLayout({ children, showMain, user, categories, eve
                     )}
                     
                   </Dropdown>
-                  <button
+                  <Dropdown>
+                    <Dropdown.Trigger>
+                      <button
+                          type="button"
+                          className="mt-1 text-primary hover:text-brown-800  focus:outline-none relative"
+                      >
+                        <span className="absolute -inset-1.5" />
+                        {likedItems && likedItems.length>0 && (
+                          <div className="absolute bg-primary ring-1 ring-white rounded-full -top-0.5 -right-0.5 w-2 h-2  flex justify-center items-center">
+                          </div>
+                        )}
+                        <HeartIcon className="h-5 w-5 2xl:h-6 2xl:w-6" aria-hidden="true" />
+                      </button>
+                    </Dropdown.Trigger>
+                    {likedItems && likedItems.length > 0 && (
+                    <Dropdown.Content type={"liked"}>
+                      {likedItems?.map(item => (
+                        <div 
+                          key={item.product.id}
+                          className={
+                            ` ${i18n.language==='ar' ? 'text-right' : 'text-left'} block w-full px-4 py-2 leading-5 text-brown-800 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out`
+                          }
+                        >
+                          <ProductItem product={item.product} />
+                        </div>
+                      ))}
+                    </Dropdown.Content>
+                    )}
+                  </Dropdown>
+                  {/* <button
                     type="button"
                     // onClick={()=>setCartOpen(true)}
                     className={`relative text-primary hover:text-brown-800  focus:outline-none`}
                   >
                     <HeartIcon className="h-5 w-5 2xl:h-6 2xl:w-6" aria-hidden="true" />
-                  </button>
+                  </button> */}
                   <button
                     type="button"
                     onClick={()=>setCartOpen(true)}

@@ -162,7 +162,7 @@ export default function Product({auth, categories, product, related, eventCatego
             </div>
 
             <div className={lang=='ar' ? "mt-4" : "mt-8"}>
-              <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg' } font-semibold text-brown-800 mb-4`}>{t('product.category')}</h2>
+              <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg' } font-semibold text-brown-800 mb-4`}>{t('product.category')}</h2>
               <div className="flex items-center gap-x-4">
                 {product.categories?.map(category => (
                   <Link 
@@ -178,7 +178,7 @@ export default function Product({auth, categories, product, related, eventCatego
             </div>
             
             <div className="mt-8 lang-ar:mt-6">
-              <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg' } font-semibold text-brown-800`}>{t('product.details')}</h2>
+              <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg' } font-semibold text-brown-800`}>{t('product.details')}</h2>
               <div className="w-full mt-2">
                 {product.description ? (
                 <p className={`text-brown-900 ${lang=='ar' ? 'text-xl lg:text-2xl' : ''}`}>
@@ -198,11 +198,11 @@ export default function Product({auth, categories, product, related, eventCatego
             <div className="mt-8 mb-4">
               {['piece','pack'].includes(product.unit)
                 ? (
-                  <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg' } font-semibold text-brown-800`}>
+                  <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg' } font-semibold text-brown-800`}>
                     {t('product.quantity')} {product.unit !== 'pack' && (<span>( {t(`product.${product.unit}`)} )</span>)}
                   </h2>
                 ): (
-                  <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg' } font-semibold text-brown-800`}>
+                  <h2 className={`${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg' } font-semibold text-brown-800`}>
                     {product.unit == 'kg' ? t('product.weight'):t('product.volume')} <span className='font-medium'>( {t(`product.${product.unit}`)} )</span>
                   </h2>
                 )
@@ -256,7 +256,7 @@ export default function Product({auth, categories, product, related, eventCatego
                   type="button" onClick={()=>setShowIngredients(!showIngredients)}
                   className="px-2 py-4 rounded-md flex w-full justify-between items-center mb-4 hover:bg-brown-50/70"
                 >
-                  <h2 className={`text-brown-800 font-semibold ${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg'}` }>
+                  <h2 className={`text-brown-800 font-semibold ${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg'}` }>
                     {product.unit==='pack'? t('product.composition') : t('product.ingredients')}
                   </h2>
                   {showIngredients
@@ -280,7 +280,7 @@ export default function Product({auth, categories, product, related, eventCatego
                   type="button" onClick={()=>setShowInstructions(!showInstructions)}
                   className="px-2 py-4 rounded-md flex w-full justify-between items-center mb-4 hover:bg-brown-50/70"
                 >
-                  <h2 className={`text-brown-800 font-semibold ${lang=='ar' ? 'text-xl lg:text-3xl font-layla-thuluth' : 'text-lg'}` }>{t('product.consumption-instructions')}</h2>
+                  <h2 className={`text-brown-800 font-semibold ${lang=='ar' ? 'text-xl lg:text-3xl font-hudhud' : 'text-lg'}` }>{t('product.consumption-instructions')}</h2>
                   {showInstructions
                   ? (<ChevronUpIcon className='w-6 h-6 text-brown-800' />)
                   : (<ChevronDownIcon className='w-6 h-6 text-brown-800' />)

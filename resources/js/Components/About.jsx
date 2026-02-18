@@ -6,20 +6,24 @@ function AboutSection({about}) {
     const {t, i18n} = useTranslation();
     const lang = i18n.language;
   return (
-    <div>
+    <div className='mx-auto my-28 sm:px-6 lg:px-8 max-w-7xl 2xl:max-w-screen-2xl' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         <div className="grid gap-16 md:grid-cols-2">
-            <div className='relative p-8'>
-                <img src="/pictures/global/naksha-blue.png" className='w-64 lg:w-96 opacity-20 absolute bottom-0 -left-8 -z-10' alt="" />
-                <p className={`text-3xl lg:text-5xl text-gray-900 font-semibold ${lang==='ar' ? 'text-right' : 'text-left' }`}>{t('about.title')}</p>
-                <p className={`text-lg font-normal text-gray-700 mt-8 ${lang==='ar' ? 'text-right' : 'text-left' }`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+            <div className='mx-4 lg:mx-8 lg:h-[520px]'>
+                <img src={`/${about.image}`} className='shadow-2xl rounded-xl object-cover h-full w-full' alt="" />
+            </div>
+            <div className='relative p-8 my-auto'>
+                <p className='home-section-title text-left lang-ar:text-right'>{t('about.title')}</p>
+                <p className='home-section-description text-justify' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
                     {lang === 'en' ? JSON.parse(about.short_description)?.en : lang==='fr' ? JSON.parse(about.short_description)?.fr : JSON.parse(about.short_description)?.ar}
                 </p>
-                <div className="mt-16 flex flex-row-reverse">
-                    <Link type='button' href='/about' className='rounded-full bg-primary text-brown-800 font-semibold px-3 py-1.5 shadow hover:bg-primary hover:text-white'>{t('about.learn-more')}</Link>
+                <div className="mt-8">
+                    <Link 
+                        href="/about" 
+                        className={`${i18n.language === 'ar' ? 'font-adobe text-xl' : 'font-nanum'} font-medium bg-brown-100 hover:bg-brown-300 text-brown-900 px-4 py-1 rounded-full inline-block`}
+                    >
+                        {t('about.learn-more')}
+                    </Link>
                 </div>
-            </div>
-            <div className=''>
-                <img src="/pictures/global/about-tp.jpg" className='shadow-2xl rounded-xl' alt="" />
             </div>
         </div>
     </div>

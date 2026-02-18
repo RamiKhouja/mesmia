@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 
 
-const OrderDetails = ({order}) => {
-  console.log(order);
+const OrderDetails = ({order, auth, categories, eventCategories}) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [isAlertVisible, setIsAlertVisible] = useState(false);
@@ -41,7 +40,7 @@ const OrderDetails = ({order}) => {
   }
   
   return (
-    <ClientLayout>
+    <ClientLayout showMain={false} user={auth?.user} categories={categories} eventCategories={eventCategories}>
       {success && isAlertVisible &&
         <div className="bg-green-100 rounded-lg text-green-800 px-4 py-3 shadow my-3" role="alert" dir={i18n.language=='ar' ? ('rtl') : ('ltr')}>
           <div className="flex items-center">

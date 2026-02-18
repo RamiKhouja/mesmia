@@ -43,11 +43,12 @@
             "buy": "Réservez Consultation"
         },
         "gifts": {
-            "description": "Ajoutez une touche spéciale à vos moments avec nos packs cadeaux soigneusement sélectionnés, conçus pour rendre chaque occasion plus chaleureuse et mémorable. Que vous recherchiez un cadeau élégant, une boîte stylée ou une sélection qui combine des saveurs orientales et occidentales, vous trouverez quelque chose qui correspond à votre goût et ravira votre destinataire. Chaque pack est préparé avec passion et présenté dans un emballage élégant qui reflète la beauté des détails, transformant le cadeau en une expérience complète. Découvrez notre collection dès maintenant et laissez la joie atteindre vos proches."
+            "description": "Ajoutez une touche spéciale à chaque moment avec nos coffrets cadeaux soigneusement sélectionnés. Élégants et raffinés, ils allient saveurs orientales et occidentales dans un écrin soigné. Découvrez la collection et partagez la joie.",
+            "discover": "Découvrez nos packs cadeaux"
         },
         "courses": {
             "our-courses": "Nos Cours",
-            "description": "Ici, vous trouverez nos cours de formation enregistrés professionnellement, conçus pour vous offrir une expérience d'apprentissage fluide et claire. Nous utilisons des techniques de tournage et de production de haute qualité, et nous proposons un contenu qui prend en compte différents niveaux de compétence, combinant une explication pratique avec une approche simplifiée, afin qu'il vous parvienne de la manière que vous méritez. Choisissez les cours qui vous conviennent et apprenez à votre rythme."
+            "description": "Découvrez nos formations enregistrées avec professionnalisme pour un apprentissage clair et flexible. Un contenu de qualité, pratique et accessible à tous les niveaux, pour apprendre à votre rythme."
         },
         "ceo": {
             "hafedh-yaiche": "M Hafedh Yaiche",
@@ -150,7 +151,7 @@
             "success": "Succès!",
             "sent-success": "Message envoyé avec succès!",
             "get-touch": "Get in touch",
-            "subtitle" : "Nous sommes ravis de vous accueillir ! Notre espace cosy est bien plus qu’un simple café, c’est un lieu où de bonnes conversations se déroulent autour d’un café exceptionnel.",
+            "subtitle" : "Nous serions ravis d’avoir de vos nouvelles. Que vous ayez une question, une demande particulière ou que vous prépariez une célébration, notre équipe est à votre disposition pour vous accompagner avec soin et attention.",
             "opening-hours": "Heures d'ouverture",
             "everyday": "Chaque Jour",
             "7am": "7H",
@@ -178,6 +179,10 @@
             "total": "Total",
             "nothing-in-bag" : "Rien dans le panier pour l'instant...",
             "empty-cart": "Vider le Panier"
+        },
+        "liked": {
+            "product-remove-liked-success": "Produit retiré avec succès des éléments aimés!",
+            "product-add-liked-success": "Produit ajouté avec succès aux éléments aimés!"
         },
         "checkout": {
             "contact-info": "Informations de contact",
@@ -252,7 +257,7 @@
             "what-expect": "Qu'attendre de ce service"
         },
         "about": {
-            "title": "À Propos Twin Peaks",
+            "title": "À Propos Mesmia",
             "learn-more": "Voir Plus",
             "our-team": "Notre Équipe",
             "staff": "Personnel",

@@ -38,81 +38,95 @@ class AboutController extends Controller
 
     public function store(Request $request)
     {
+        $about = About::firstOrNew();
 
-        //Log::info('The Store function called', ['request' => $request->all()]);
-        
         $validated = $request->validate([
             'title_en' => 'required|string|max:255',
             'title_fr' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+
+            // image required only if no record exists
+            'image' => $about->exists
+                ? 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+                : 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+
             'short_description_en' => 'required|string',
             'short_description_fr' => 'required|string',
             'short_description_ar' => 'required|string',
+
             'paragraph_1_en' => 'required|string',
             'paragraph_1_fr' => 'required|string',
             'paragraph_1_ar' => 'required|string',
+
             'title_2_en' => 'nullable|string|max:255',
             'title_2_fr' => 'nullable|string|max:255',
             'title_2_ar' => 'nullable|string|max:255',
+
             'paragraph_2_en' => 'nullable|string',
             'paragraph_2_fr' => 'nullable|string',
             'paragraph_2_ar' => 'nullable|string',
-            'pictures.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+
+            // FIXED validation
+            'picture_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'picture_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'picture_3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'picture_4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'picture_5' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $about = About::firstOrNew();
-        //$about->fill($validated);
-
+        // JSON Fields
         $about->title = json_encode([
-            'en' => $request->input('title_en'),
-            'ar' => $request->input('title_ar'),
-            'fr' => $request->input('title_fr'),
-        ]);
-    
-        $about->short_description = json_encode([
-            'en' => $request->input('short_description_en'),
-            'ar' => $request->input('short_description_ar'),
-            'fr' => $request->input('short_description_fr'),
-        ]);
-    
-        $about->paragraph_1 = json_encode([
-            'en' => $request->input('paragraph_1_en'),
-            'ar' => $request->input('paragraph_1_ar'),
-            'fr' => $request->input('paragraph_1_fr'),
-        ]);
-    
-        $about->title_2 = json_encode([
-            'en' => $request->input('title_2_en'),
-            'ar' => $request->input('title_2_ar'),
-            'fr' => $request->input('title_2_fr'),
-        ]);
-    
-        $about->paragraph_2 = json_encode([
-            'en' => $request->input('paragraph_2_en'),
-            'ar' => $request->input('paragraph_2_ar'),
-            'fr' => $request->input('paragraph_2_fr'),
+            'en' => $request->title_en,
+            'ar' => $request->title_ar,
+            'fr' => $request->title_fr,
         ]);
 
-        $imagePath = null;
+        $about->short_description = json_encode([
+            'en' => $request->short_description_en,
+            'ar' => $request->short_description_ar,
+            'fr' => $request->short_description_fr,
+        ]);
+
+        $about->paragraph_1 = json_encode([
+            'en' => $request->paragraph_1_en,
+            'ar' => $request->paragraph_1_ar,
+            'fr' => $request->paragraph_1_fr,
+        ]);
+
+        $about->title_2 = json_encode([
+            'en' => $request->title_2_en,
+            'ar' => $request->title_2_ar,
+            'fr' => $request->title_2_fr,
+        ]);
+
+        $about->paragraph_2 = json_encode([
+            'en' => $request->paragraph_2_en,
+            'ar' => $request->paragraph_2_ar,
+            'fr' => $request->paragraph_2_fr,
+        ]);
+
+        // Main image (only replace if new uploaded)
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->storePublicly('pictures/about');
-            $about->image = $imagePath;
+            $about->image = $request->file('image')
+                ->storePublicly('pictures/about');
         }
 
-        // Handle pictures
+        // FIXED Pictures loop
         for ($i = 1; $i <= 5; $i++) {
-            if ($request->hasFile("pictures.$i")) {
-                $path = $request->file("pictures.$i")->storePublicly('pictures/about');
-                $about->{"picture_$i"} = $path;
+            if ($request->hasFile("picture_$i")) {
+                $about->{"picture_$i"} = $request
+                    ->file("picture_$i")
+                    ->storePublicly('pictures/about');
             }
         }
-        //Log::info('The Store function called', ['about' => $about]);
 
         $about->save();
 
-        return redirect()->route('admin.about.index')->with('success', 'About section updated successfully!');
+        return redirect('/admin/about')
+            ->with('success', 'About section saved successfully!');
     }
+
+
 
     public function createCeo()
     {

@@ -52,8 +52,13 @@ const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-whit
     // }
 
     let widthClasses = '';
-    if(type && type === "menu") {
-        widthClasses = 'w-56';
+    if(type) {
+        if(type === "menu") {
+            widthClasses = 'w-56';
+        }
+        else if(type === "liked") {
+            widthClasses = 'w-80';
+        }
     } else {
         if (width === '48') {
             widthClasses = 'w-48';

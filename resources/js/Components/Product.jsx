@@ -5,7 +5,9 @@ import { Link } from '@inertiajs/react';
 import { addItemToCart, showAlert } from '@/redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import { HeartIcon, MinusCircleIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import { HeartIcon as SolidHeartIcon } from '@heroicons/react/20/solid';
+import { addItemToLiked } from '@/redux/likedSlice';
 
 function Product({product}) {
     const { t } = useTranslation();
@@ -16,6 +18,11 @@ function Product({product}) {
     const addItem = (product) => {
         dispatch(addItemToCart({ product, quantity }));
         dispatch(showAlert({ type: 'success', message: 'cart.product-add-cart-success' }));
+    };
+
+    const addToLiked = (product) => {
+        dispatch(addItemToLiked({ product, quantity }));
+        dispatch(showAlert({ type: 'success', message: 'liked.product-add-liked-success' }));
     };
 
     function truncateString(inputString, maxWords) {
@@ -128,15 +135,25 @@ function Product({product}) {
                 <p className='text-brown-800/80 font-medium'> {t(`product.${product.unit}`)}</p>
             )} */}
         </div>
+        <div className="flex lang-ar:flex-row-reverse items-center gap-x-2 w-full h-fits mt-4 justify-center">
         <button
             type="button"
             dir={lang==='ar'?'rtl':'ltr'}
             onClick={()=>addItem(product)}
-            className="mt-4 inline-flex justify-center mx-auto w-fit items-center gap-x-4 rounded-full bg-primary px-6 py-1.5 text-sm lang-ar:text-lg font-semibold text-white shadow-sm hover:bg-brown-300 hover:text-brown-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex justify-center w-fit items-center gap-x-4 rounded-full bg-primary px-6 py-2 lang-ar:py-1.5 text-sm lang-ar:text-lg font-semibold text-white shadow-sm hover:bg-brown-300 hover:text-brown-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
             <ShoppingCartIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
             {t('owl-products.add-cart')}
         </button>
+        <button 
+            type='button' 
+            onClick={()=>addToLiked(product)}
+            className='rounded-full group border border-primary p-1.5 text-center text-primary hover:bg-brown-300 hover:border-brown-300 hover:text-brown-800'
+        >
+            <HeartIcon className='w-5 h-5 group-hover:hidden' />
+            <SolidHeartIcon className='w-5 h-5 hidden group-hover:block' />
+        </button>   
+        </div>
         
     </div>
   )

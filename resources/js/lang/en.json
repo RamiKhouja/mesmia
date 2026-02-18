@@ -43,11 +43,12 @@
         "buy" : "Book Consultation"
       },
       "gifts": {
-        "description": "Add a special touch to your moments with our carefully selected gift packs, designed to make every occasion warmer and more memorable. Whether you're looking for an elegant gift, a stylish box, or a selection that combines Eastern and Western flavors, you'll find something that suits your taste and delights your recipient. Each pack is prepared with passion and presented in an elegant package that reflects the beauty of details, turning the gift into a complete experience. Discover our collection now and let joy reach your loved ones."
+        "description": "Add a special touch to every moment with our carefully curated gift packs. Elegant, flavorful, and beautifully presented, each box blends Eastern and Western tastes to create a truly memorable experience. Discover the perfect gift and share the joy.",
+        "discover": "Discover our gift packs"
       },
       "courses": {
         "our-courses": "Our Courses",
-        "description": "Here you will find our professionally recorded training courses, designed to provide you with a smooth and clear learning experience. We use high-quality filming and production techniques, and we offer content that takes into account different skill levels, combining practical explanation with a simplified approach, so that it reaches you in the manner you deserve. Choose the courses that suit you and learn at the pace that fits your time."
+        "description": "Discover our professionally recorded training courses, created for a clear and flexible learning experience. With high-quality production and practical, easy-to-follow lessons for all levels, you can learn at your own pace."
       },
       "ceo": {
         "hafedh-yaiche": "Mr Hafedh Yaiche",
@@ -150,7 +151,7 @@
         "success" : "Success!",
         "sent-success" : "Message sent successfully!",
         "get-touch": "Get in touch",
-        "subtitle" : "We’re thrilled to have you here! Our cozy corner is more than just a coffee shop, it’s a place where great conversations brew alongside exceptional coffee.",
+        "subtitle" : "We would love to hear from you. Whether you have a question, a special request, or are planning a celebration, our team is here to assist you with care and attention.",
         "opening-hours": "Opening Hours",
         "everyday": "Every Day",
         "7am": "7am",
@@ -178,6 +179,10 @@
         "total": "Total",
         "nothing-in-bag" : "Nothing in the bag yet ...",
         "empty-cart": "Empty Cart"
+      },
+      "liked": {
+        "product-remove-liked-success": "Product successfully removed from liked items!",
+        "product-add-liked-success": "Product successfully added to liked items!"
       },
       "checkout": {
         "contact-info": "Contact informations",
@@ -252,7 +257,7 @@
         "what-expect": "What to expect"
       },
       "about": {
-        "title": "About Twin Peaks",
+        "title": "About Mesmia",
         "learn-more": "Learn More",
         "our-team": "Our Team",
         "staff": "Staff",

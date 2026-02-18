@@ -139,8 +139,12 @@ class CartController extends Controller
         }
         $purchases = json_decode($order->purchases);
         $order->purchases = $purchases;
+        $categories = Category::where('parent_id',null)->where('type','menu')->with('children')->get();
+        $eventCategories = Category::where('parent_id',null)->where('type','event')->with('children')->get();
         return inertia('Client/OrderDetails',[
-            'order'=>$order
+            'order'=>$order,
+            'eventCategories' => $eventCategories,
+            'categories' => $categories,
         ]);
     }
 

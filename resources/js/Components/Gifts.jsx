@@ -8,14 +8,9 @@ function Gifts() {
     const lang = i18n.language;
     const [play, setPlay] = useState(false);
   return (
-    <div className='my-24'>
-        <div className="grid gap-16 md:grid-cols-2">
-            <div className='relative p-8 text-center'>
-                <Link type='button' href='/about' className={`rounded-full bg-transparent border border-primary text-primary ${lang==='ar'? 'text-2xl font-semibold font-layla-thuluth':'text-lg font-semibold'} px-4 py-1 hover:bg-primary hover:text-white`}>{t('navigation.gifts-packs')}</Link>
-                <p className={`${lang==='ar' ? 'text-2xl font-normal font-layla-thuluth':'text-lg font-medium'} text-primary mt-8`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-                    {t('gifts.description')}
-                </p>
-            </div>
+    <div className='my-24 mx-auto lg:max-w-7xl 2xl:max-w-screen-2xl'>
+        <div className="grid gap-16 md:grid-cols-2" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+            
             {!play ? (
             <div className="relative cursor-pointer group" onClick={() => setPlay(true)}>
                 <img src="/pictures/global/gift.jpg" className='shadow-2xl rounded-xl' alt="" />
@@ -33,6 +28,20 @@ function Gifts() {
                 />
             </div>
             )}
+            <div className='relative my-auto'>
+                <p className='home-section-title text-center'>{t('navigation.gifts-packs')}</p>
+                <p className='home-section-description text-center' dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+                    {t('gifts.description')}
+                </p>
+                <div className="mt-8 mx-auto text-center">
+                    <Link 
+                        href="/occasion/gift-packs" 
+                        className={`${i18n.language === 'ar' ? 'font-adobe text-xl' : 'font-nanum'} font-medium bg-brown-100 hover:bg-brown-300 text-brown-900 px-4 py-1 rounded-full inline-block`}
+                    >
+                        {t('gifts.discover')}
+                    </Link>
+                </div>
+            </div>
         </div>
     </div>
   )
