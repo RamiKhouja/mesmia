@@ -77,7 +77,6 @@ function OwlProducts({products, type}) {
             dir={ i18n.language === 'ar' ? 'rtl' : 'ltr' }
             loop={false}
             spaceBetween={24}
-            speed={3000} // equivalent to smartSpeed
             pagination={{ clickable: true }}
             slidesPerView={1.25}
             breakpoints={{
