@@ -4,7 +4,9 @@ import ClientLayout from '@/Layouts/ClientLayout'
 import { useTranslation } from 'react-i18next';
 import Categories from '@/Components/Categories';
 import OwlProducts from '@/Components/OwlProducts';
-import OwlCarousel from 'react-owl-carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 import Contact from '@/Components/Contact';
 import Gifts from '@/Components/Gifts';
 import Courses from '@/Components/Courses';
@@ -118,18 +120,55 @@ function Home({auth, categories, featured, eventCategories, about}) {
           </div>
         )}
 
-        <OwlCarousel className='owl-theme section' loop autoplay {...options}>
-          <div className="review item">
-            <img src="/pictures/global/carousel/carousel-1.jpg" alt="Fragrant" className="w-full object-cover h-56 md:h-80 lg:h-[400px]"/>
-          </div>
-          <div className="review item">
-            <img src="/pictures/global/carousel/carousel-2.jpg" alt="Fragrant" className="w-full object-cover h-56 md:h-80 lg:h-[400px]"/>
-          </div>
+        <Swiper
+          modules={[Autoplay]}
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          slidesPerView={1}
+          spaceBetween={0}
+          className="section"
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            400: { slidesPerView: 1 },
+            600: { slidesPerView: 1 },
+            700: { slidesPerView: 1 },
+            800: { slidesPerView: 1 },
+            1000: { slidesPerView: 1 },
+          }}
+        >
+          <SwiperSlide>
+            <div className="review">
+              <img
+                src="/pictures/global/carousel/carousel-1.jpg"
+                alt="Fragrant"
+                className="w-full object-cover h-56 md:h-80 lg:h-[400px]"
+              />
+            </div>
+          </SwiperSlide>
 
-          <div className="review item">
-            <img src="/pictures/global/carousel/carousel-3.jpg" alt="Fragrant" className="w-full object-cover h-56 md:h-80 lg:h-[400px]"/>
-          </div>
-        </OwlCarousel>
+          <SwiperSlide>
+            <div className="review">
+              <img
+                src="/pictures/global/carousel/carousel-2.jpg"
+                alt="Fragrant"
+                className="w-full object-cover h-56 md:h-80 lg:h-[400px]"
+              />
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="review">
+              <img
+                src="/pictures/global/carousel/carousel-3.jpg"
+                alt="Fragrant"
+                className="w-full object-cover h-56 md:h-80 lg:h-[400px]"
+              />
+            </div>
+          </SwiperSlide>
+        </Swiper>
         {/* <div className="flex justify-center w-full mt-8">
           <img src="/pictures/global/smile.png" className='w-10' alt="" />
         </div> */}

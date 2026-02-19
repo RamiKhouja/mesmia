@@ -1,7 +1,8 @@
 import React from 'react'
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import Product from './Product';
@@ -70,15 +71,32 @@ function OwlProducts({products, type}) {
           </div>
         )}
         <div className="">
-        <OwlCarousel key={forceRerender} className='owl-theme' {...options}>
-            {products.map((product) => {
-                return(
-                    <div key={product.id} className="item h-full mb-4">
-                        <Product product={product}/>
-                    </div>
-                )
-            })}
-        </OwlCarousel>
+        <Swiper
+            key={forceRerender}
+            modules={[Pagination]}
+            dir={ i18n.language === 'ar' ? 'rtl' : 'ltr' }
+            loop={false}
+            spaceBetween={24}
+            speed={3000} // equivalent to smartSpeed
+            pagination={{ clickable: true }}
+            slidesPerView={1.25}
+            breakpoints={{
+                0: { slidesPerView: 1.25 },
+                400: { slidesPerView: 2 },
+                600: { slidesPerView: 2.5 },
+                700: { slidesPerView: 3 },
+                1000: { slidesPerView: 4 },
+                1200: { slidesPerView: 5 },
+            }}
+            >
+            {products.map((product) => (
+                <SwiperSlide key={product.id}>
+                <div className="h-full mb-4">
+                    <Product product={product} />
+                </div>
+                </SwiperSlide>
+            ))}
+        </Swiper>
         </div>
     </div>
   )

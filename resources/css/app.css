@@ -112,18 +112,27 @@ body {
     @apply w-9 h-9 p-2 bg-primary rounded-full;
 }
 
-.owl-theme .owl-dots .owl-dot span {
-    margin-top: 20px !important;
+
+/* Pagination container spacing */
+.swiper-pagination {
+    margin-top: 28px !important;
+    position: relative !important;
+}
+
+/* Default bullet */
+.swiper-pagination-bullet {
     width: 16px !important;
     height: 16px !important;
-    background: #B59483 !important;   /* default dot color */   
-    display: block !important;
+    background: #B59483 !important; /* default dot color */
+    opacity: 1 !important;
 }
-.owl-theme .owl-dots .owl-dot.active span,
-.owl-theme .owl-dots .owl-dot:hover span {
-    background: #351E10 !important;   /* active or hover color */
-    display: block !important;
+
+/* Active + hover bullet */
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet:hover {
+    background: #351E10 !important; /* active or hover color */
 }
+
 
 .home-section-title {
     @apply text-brown-800 lang-ar:font-hudhud lang-ar:text-3xl lang-ar:lg:text-5xl font-medium text-2xl lg:text-5xl;
