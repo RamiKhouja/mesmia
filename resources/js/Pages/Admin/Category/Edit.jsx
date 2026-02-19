@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { router } from '@inertiajs/react';
 import AdminLayout from '@/Layouts/AdminLayout';
 import { useTranslation } from 'react-i18next';
+import Select from 'react-select';
 
 const EditCategory = ({cat, parentCats, auth}) => {
   const {t, i18n} = useTranslation();
@@ -14,10 +15,20 @@ const EditCategory = ({cat, parentCats, auth}) => {
     description_ar: cat.description.ar,
     description_fr: cat.description.fr,
     url: cat.url,
+    type: cat.type,
     image: null,
     menu_show: cat.menu_show,
     parent_id: cat.parent_id
   });
+
+  const typeOptions = [
+      { label: 'Menu', value: 'menu' },
+      { label: 'Event', value: 'event' }
+    ];
+  const [selectedType, setSelectedType] = useState(cat.type ? { label: cat.type.charAt(0).toUpperCase() + cat.type.slice(1), value: cat.type }: null);
+  const handleTypeChange = (type) => {
+    setSelectedType(type)
+  }
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -58,6 +69,7 @@ const EditCategory = ({cat, parentCats, auth}) => {
     formData.append('description_fr', category.description_fr);
     formData.append('description_ar', category.description_ar);
     formData.append('url', category.url);
+    formData.append('type', selectedType ? selectedType.value : '');
     if (category.image) {
       formData.append('image', category.image);
     }
@@ -232,6 +244,18 @@ const EditCategory = ({cat, parentCats, auth}) => {
             />
           </div>
         </div>
+        <div className='mb-4'>
+            <label htmlFor="parent" className="block text-sm mb-2 font-medium leading-6 text-gray-900">
+            Type
+            </label>
+            <Select 
+              name='type' 
+              options={typeOptions} 
+              isMulti={false} 
+              value={selectedType} 
+              onChange={handleTypeChange}
+            />
+          </div>
         <div className="flex flex-row-reverse">
           <button
             type="submit"
