@@ -161,7 +161,9 @@
         "name":"Name",
         "phone" :"Phone number",
         "foulen" : "Foulen Ben Foulen",
-        "whats-mind": "What's on your mind?"
+        "whats-mind": "What's on your mind?",
+        "address": "Hedi Saîdi El Omrane",
+        "city": "Tunis 1005"
       },
       "cart" : {
         "success" : "Success!",

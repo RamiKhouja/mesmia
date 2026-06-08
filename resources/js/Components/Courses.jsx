@@ -25,19 +25,19 @@ function Courses() {
                 </div>
             </div>
             {!play ? (
-            <div className="relative cursor-pointer group" onClick={() => setPlay(true)}>
-                <img src="/pictures/global/chef.jpg" className='shadow-2xl rounded-xl' alt="" />
+            <div className="relative cursor-pointer group flex justify-center" onClick={() => setPlay(true)}>
+                <img src="/pictures/global/chef.jpg" className='shadow-2xl rounded-xl max-h-[500px]' alt="" />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <PlayCircleIcon className='h-20 w-20 text-white shadow-inner group-hover:text-brown-900' />
                 </div>
             </div>
             ) : (
-            <div className="relative aspect-w-16 aspect-h-9">
+            <div className="relative aspect-w-16 aspect-h-9 flex justify-center">
                 <video
                     src='/pictures/global/tutorial.mp4'
                     controls
                     autoPlay
-                    className="w-full h-full rounded-xl shadow-2xl"
+                    className="max-h-[500px] rounded-xl shadow-2xl"
                 />
             </div>
             )}

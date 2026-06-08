@@ -106,11 +106,11 @@ export default function Contact() {
                   <span className="sr-only">Address</span>
                   <BuildingStorefrontIcon aria-hidden="true" className="h-7 w-6 text-white" />
                 </dt>
-                <a href="https://maps.app.goo.gl/DeWpfMCsjWTwJzRu8" className='hover:text-primary' target='_blank'>
+                <a href="https://maps.app.goo.gl/A589T15BryukVcrV8" className='hover:text-primary' target='_blank'>
                   <dd>
-                    {t('contact.rue-jeune')}
+                    {t('contact.address')}
                     <br />
-                    {t('contact.menzah-tunis')}
+                    {t('contact.city')}
                   </dd>
                 </a>
               </div>
@@ -121,7 +121,7 @@ export default function Contact() {
                 </dt>
                 <dd>
                   <a dir='ltr' href="tel:+216 70 295 544" className="hover:text-primary">
-                    +216 70 295 544
+                    +216 52 275 801
                   </a>
                 </dd>
               </div>
@@ -131,8 +131,8 @@ export default function Contact() {
                   <EnvelopeIcon aria-hidden="true" className="h-7 w-6 text-white" />
                 </dt>
                 <dd>
-                  <a href="mailto:hello@example.com" className="hover:text-primary">
-                    hello@twinpeaks.tn
+                  <a href="mailto:emna-bm85@hotmail.fr" className="hover:text-primary">
+                    emna-bm85@hotmail.fr
                   </a>
                 </dd>
               </div>
